@@ -1,2 +1,2 @@
 # trying to ignore Subversion files and directories
-../\.svn
+.svn
