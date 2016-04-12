@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Revision: 1.5.2.1 $ $Date: 2012/06/11 22:25:07 $ -->
+
+<!--
+#(c)#=====================================================================
+#(c)#
+#(c)#       Copyright 2007-2012 ExLibris Group
+#(c)#                       All Rights Reserved
+#(c)#
+#(c)#=====================================================================
+-->
+
+<!--
+**          Product : WebVoyage :: configs
+**          Version : 8.0.0
+**          Created : 24-SEP-2007
+**      Orig Author : Mel Pemble
+**    Last Modified : 01-JUN-2010
+** Last Modified By : Mel Pemble
+
+-->
+<pageConfigs>
+
+   <!-- ## Timeout ## -->
+   <jsmessage nameId="timeOutMessage"><preText>Your session will end in </preText><postText> minute!</postText></jsmessage>
+   <accessibilityHeader nameId="timeOutNoScript"><preText>Notice: This web application times out </preText><postText> minute after loading a page.</postText></accessibilityHeader>
+
+
+   <!-- ## Accessibility Headers ##-->
+   <accessibilityHeader nameId="myAccountLinks">My Account Quick Links</accessibilityHeader>
+
+
+   <!-- ## Tab Display Order ## -->
+
+   <!-- ## Header Tab Display Order ## -->
+   <!-- To remove any tab from the header, comment out its opening and closing "tab" elements. -->
+   <headerTabDisplayOrder>
+      <tab name="page.header.buttons.search.button">
+         <highlight
+            pages="
+               page.searchBasic
+               page.searchAdvanced
+               page.searchSubject
+               page.searchAuthor
+               page.searchCourseReserveData
+            "/>
+      </tab>
+      <!-- ## The following element will create a new tab in the header Search Ethno and Fata ## -->
+      <tab name="page.header.buttons.selectDatabase.button" />	
+      <tab name="page.header.buttons.mySearches.button">
+      <highlight
+            pages="
+               page.mySearches
+            "/>
+      </tab>
+      <tab name="page.header.buttons.myList.button">
+      <highlight
+            pages="
+               page.myList
+            "/>
+      </tab>
+      <tab name="page.header.buttons.myAccount.button">
+         <highlight
+            pages="
+               page.myAccount
+               page.myAccount.personalInfo
+               page.myAccount.editPreferences
+               page.myAccount.changePin
+            "/>
+      </tab>
+   </headerTabDisplayOrder>
+
+   <!-- ## Search Tab Display Order ## -->
+   <!-- To remove any search tab, comment out its "tab" element. -->
+   <searchTabDisplayOrder>
+      <tab name="page.search.buttons.basic.button"/>
+      <tab name="page.search.buttons.advanced.button"/>
+      <!--<tab name="page.search.buttons.subjectHeading.button"/>
+      <tab name="page.search.buttons.author.button"/>-->
+      <tab name="page.search.buttons.courseReserve.button"/>
+      <!-- enable these lines if site has geospatial searching
+      <tab name="page.search.buttons.geospatial.button"/>
+      <tab name="page.search.geospatial.button"/>
+      -->
+   </searchTabDisplayOrder>
+
+   <!-- ## GeoSearch Tab Display Order ## -->
+   <geosearchTabDisplayOrder>
+      <tab name="map.search.buttons.rectangleSearch.button"/>
+      <tab name="map.search.buttons.polygonSearch.button"/>
+      <tab name="map.search.buttons.pointRadiusSearch.button"/>
+      <tab name="map.search.buttons.corridorSearch.button"/>
+      <tab name="map.search.buttons.rangeSearch.button"/>
+   </geosearchTabDisplayOrder>
+
+   <!-- ## Footer Tab Display Order ## -->
+   <footerTabDisplayOrder>
+      <tab name="page.footer.buttons.search.button">
+         <highlight
+            pages="
+               page.searchBasic
+               page.searchAdvanced
+               page.searchSubject
+               page.searchAuthor
+               page.searchCourseReserveData
+            "/>
+      </tab>
+      <tab name="page.footer.buttons.mySearches.button">
+      <highlight
+            pages="
+               page.mySearches
+            "/>
+      </tab>
+      <tab name="page.footer.buttons.myList.button">
+      <highlight
+            pages="
+               page.myList
+            "/>
+      </tab>
+      <tab name="page.footer.buttons.myAccount.button">
+         <highlight
+            pages="
+               page.myAccount
+               page.myAccount.personalInfo
+               page.myAccount.editPreferences
+               page.myAccount.changePin
+            "/>
+      </tab>
+      <tab name="page.footer.buttons.help.button" clickOpensNewWindow="true" />
+   </footerTabDisplayOrder>
+
+   <!-- ## Browse Bar Button Display Order ## -->
+   <browseBarButtonOrder>
+      <button name="page.searchResults.browseBar.print.button"/>
+      <button name="page.searchResults.browseBar.export.button"/>
+      <button name="page.searchResults.browseBar.email.button"/>
+      <button name="page.searchResults.browseBar.addToList.button"/>
+      <button name="page.searchResults.browseBar.delete.button"/>
+      <button name="page.searchResults.browseBar.update.button"/>
+   </browseBarButtonOrder>
+
+
+   <!--
+      ## Instructions for use.
+      ##   * create a <page> element
+      ##   * give the <page> and attribute of 'name' that matches the XML page nameId (see framework.xsl to enable debugging)
+      ##   * give the <page name="pageID"> an attribute of position and set it to "aboveContent" or "belowContent"
+      ##   * give the <page name="pageID" position="belowContent"> some html data
+   -->
+   <pageHTML>
+      <!-- ## Start Search Tips ## -->
+      <!-- You may comment these out to disable -->
+      <page name="page.searchCourseReserveAlpha" position="belowContent">
+         <div class="searchTip">Please select the first letter of the Instructor, Department or Course whose reserve list you'd like to browse.</div>
+      </page>
+      <page name="page.searchCourseReserveDepartment" position="belowContent">
+         <div class="searchTip">Please select the department from the list below.</div>
+      </page>
+      <page name="page.searchCourseReserveCourse" position="belowContent">
+         <div class="searchTip">Please select the instructor name from the list below.</div>
+      </page>
+      <page name="page.searchCourseReserveInstructor" position="belowContent">
+         <div class="searchTip">Please select the course from the list below.</div>
+      </page>
+      <page name="page.logIn" position="aboveContent">
+        <div class="yaleLoginInstructionText">
+	  <span class="logonbold">UCLA students, faculty, and staff:</span><span class="loginonce"> use your UCLA Logon to renew your library materials, request items, and to check your library account.</span><br/>
+	</div>
+        <div class="LoginInstructionText">
+          <p>
+            <strong>All Others</strong>:<br/>Enter your library card number (initial letter, if there is one, and all digits without any spaces between them).
+          </p>
+        </div>
+         <!--<div class="instructionText">Please enter your Patron Barcode and Last Name, then click the <span class="uiLabelRef">Log in</span> button.</div>-->
+      </page>
+      <!--
+      <page name="page.searchSubject" position="aboveContent">
+         <div class="instructionText">
+            Click on <span class="uiLabelRef">Change </span> to find other databases to search.
+         </div>
+      </page>
+      -->
+
+      <page name="page.searchCourseReserveData" position="belowContent">
+         <div class="searchTip"><span class="label">Search Tips: </span>
+<ul>
+            <li>To find material on reserve for your course, select the instructor, department, and/or course.  </li>
+<li>Look up course information via <a href="http://www.registrar.ucla.edu/schedule/" target="_blank">UCLA Schedule of Classes</a></li>
+</ul>
+         </div>
+      </page>
+      <page name="page.searchSubject" position="belowContent">
+         <div class="searchTip">
+            <span class="label">Search Tips: </span>
+            Enter library defined subject headings: <span class="example">accounting periodicals</span> or <span class="example">united states civil war</span>
+         </div>
+      </page>
+      <page name="page.searchBasic" position="belowContent">
+         <div class="searchTip">
+<a href="http://www.library.ucla.edu/search/165.cfm">Search Other Catalogs</a>: Melvyl (UC Libraries),WorldCat (Libraries worldwide)<p></p>
+<a href="http://www.library.ucla.edu/search/13918.cfm">Articles</a>: To Find Journal and Magazine Articles<p></p>
+<a href="http://www.library.ucla.edu/search/subjects.cfm">Databases by Subject</a>: To Find the Most Useful Databases by Subject<p></p>
+<a href="http://www.library.ucla.edu/service/168.cfm">Interlibrary Loan and Document Delivery Services</a><p></p>
+New Book Alerts via RSS: Try <a href="http://www.library.ucla.edu/libraries/6453.cfm">RSS New Books</a><p></p>
+<a onmouseover="window.status='Click for catalog search tips'; return true" href="/catalog_help.htm" target="_blank">Quick Search Tips</a><br/>
+
+            <!--span class="label">Search Tips: </span>
+<ul>
+            <li>enter words relating to your topic, use quotes to search phrases: <span class="example">"world wide web"</span></li>
+            <li>use + to mark essential terms:  <span class="example">+explorer</span></li>
+            <li>use * to mark important terms:  <span class="example">*internet</span></li>
+            <li>use ? to truncate:  <span class="example"> immigra? finds immigration, immigrant, immigrants, immigrating...</span></li>
+</ul-->
+         </div>
+      </page>
+      <page name="page.searchAdvanced" position="belowContent">
+         <div class="searchTip">
+            <span class="label">Search Tips: </span>
+<ul>
+            <li>Follow the form prompts to construct a Boolean search. </li>
+<li>Use the "Search:" box to enter terms,
+            select the relationship of terms to the right of the search box. </li>
+<li>Use the "within" menu to search for the terms in a particular field.</li>
+            <li>To combine sets, choose the operator you want: AND, OR, NOT. </li>
+<li>Select filters as desired.</li>
+            <li>Then click the Search button to complete your search.</li>
+</ul>
+         </div>
+      </page>
+      <page name="page.searchAuthor" position="belowContent">
+         <div class="searchTip">
+            <span class="label">Search Tips: </span>
+            Enter the authors last name and as much of the first name as you know: <span class="example">longfellow h</span>, enter a company or association name in the last name field: <span class="example">american chemical society</span>
+         </div>
+      </page>
+
+      <page name="page.searchResults.headings" position="belowContent">
+         <div class="searchTip">
+            <span class="label">Search Tips: </span> Select a specific heading to display the titles for that heading or follow a cross-reference to get to a more appropriate heading.
+         </div>
+      </page>
+
+      <page name="page.selectDatabase" position="belowContent">
+         <div class="instructionText">
+            <!--Select one or more of the following resources to search or select nothing to search only your local catalog. Press <span class="uiLabelRef">Select</span> to begin a search.-->
+<h2> More Information about the Collections</h2>
+<h4><a href="http://www.ethnomusic.ucla.edu/archive/">Ethnomusicology Archive</a></h4>
+<h4><a href="http://www.cinema.ucla.edu/">Film and Television Archive</a></h4>
+<h4><a href="http://www.google.com">UCLA Libraries and Collections</a></h4>
+         </div>
+      </page>
+
+      <page name="page.searchHistory" position="aboveContent">
+         <div class="instructionText">
+            Displays your last 20 searches in this session.
+         </div>
+      </page>
+
+      <page name="page.searchHistory" position="belowContent">
+         <div class="searchTip"><span class="label">Click on: </span>
+            <span class="uiLabelRef">Re-run</span> to see the results again, <span class="uiLabelRef">Edit</span> to modify the search, or <span class="uiLabelRef">Save</span> to add it to <span class="uiLabelRef">My Searches</span>.
+         </div>
+      </page>
+
+      <page name="page.mySearches" position="aboveContent">
+         <div class="instructionText">
+            All saved searches are executed with the currently connected database.<br/>
+            To change a saved search into an email alert, change the option under <span class="uiLabelRef">Alert Frequency</span> from "None" to another value and save the changes.<br/>
+            To cancel an alert, either set the option under <span class="uiLabelRef">Alert Frequency</span> to "None" or delete the associated saved search.
+         </div>
+      </page>
+
+      <page name="page.myAccount" position="aboveContent">
+         <div class="instructionText myAccountInstructions">
+            Review and update your library transactions.
+         </div>
+      </page>
+
+      <page name="page.myAccount.editPreferences" position="aboveContent">
+         <div class="instructionText myAccountInstructions">
+            Set the following preference to be restored each time you log in.
+         </div>
+      </page>
+
+      <page name="page.patronRequests" position="aboveContent">
+         <div class="instructionText">
+            Select the type of request you would like to make. See the help screen for details about different kinds of requests.
+         </div>
+      </page>
+
+      <page name="page.searchResults.emailResults" position="aboveContent">
+         <div class="formLabel">
+            <label for="page.searchResults.emailResults.page.email.label1">To email the selected results, enter the information below and click Email.</label>
+         </div>
+         <div class="formLabel">
+            <label>( <span class="formRequired">*</span> = required field)</label>
+         </div>
+      </page>
+
+      <page name="page.searchResults.emailResults" position="belowContent">
+         <br/>
+         <br/>
+         <div class="formNotes">
+            The information entered on this page will not be used to send unsolicited email, and will not be sold to a 3rd party.
+         </div>
+      </page>
+
+      <page name="page.myAccount.viewPersonalInfo.smsInstruction" position="aboveContent">
+         <div class="instructionText">
+            If you would like to receive circulation notices from the library on your mobile device,
+            enter your mobile device number in the field provided starting with the country code.
+            Examples: 18885551234, 1-888-555-1234,  or 1(888) 555-1234, +61 9 1234 1234 or 61912341234
+         </div>
+      </page>
+      <page name="page.myAccount.viewPersonalInfo.smsNonLocalInstruction" position="belowContent">
+          <div class="instructionText">
+             Add or update your SMS number from WebVoyage at your home library
+          </div>
+      </page>
+
+   </pageHTML>
+
+
+   <!-- ## Override [blockCode] [errorCode] or [requestCode] messages
+        ##
+        ## The following XML is a place to define what text appears in the interface when we get a <page:message> block
+        ## from the server (enable debug in frameWork.xsl to reveal the showXML button in the interface to view XML data)
+        ## At this point the following are just overrides to the text that comes back in the XML
+        ##
+        ## For Example given the following XML block
+        ##
+        ##  <page:message>
+        ##     <page:message blockCode="" errorCode="searchResults.noHits" requestCode="">No hits.<page:message>
+        ##  </page:messages>
+        ##
+        ## we have an errorCode of 'searchResults.noHits'
+        ## so we create a <pageMsg> eith an errorCode attribute matching what we want to override with a block of text or HTML
+        ##
+        ##   <pageMsg errorCode="searchResults.noHits">Search resulted in no hits.</pageMsg>
+        ##
+        ## Hopefully this makes life a little easier, in the future I would like all pageMessages to be defined here
+   -->
+   <pageMessages>
+      <pageMsg blockCode="PDSERRORMSG">
+         There was an error with your credentials when attempting to login.
+         <br/>Retry your request or ask for help at the Circulation or Reference Desk.
+      </pageMsg>
+      <pageMsg blockCode="PATRONMSG">
+         You may not have entered your barcode and name correctly.
+         <br/>Retry your request or ask for help at the Circulation or Reference Desk.
+      </pageMsg>
+      <pageMsg blockCode="PATRONSOCMSG">
+         You may not have entered your social security number and name correctly.
+         <br/>Retry your request or ask for help at the Circulation or Reference Desk.
+      </pageMsg>
+      <pageMsg blockCode="PATRONIIDMSG">
+         You may not have entered your institution id and name correctly.
+         <br/>Retry your request or ask for help at the Circulation or Reference Desk.
+      </pageMsg>
+      <pageMsg blockCode="PATRONBRIEFMSG">
+         The system could not identify you from your ID number alone.
+         <br/>Please choose your home library and ID number type on this form and try again,
+         <br/>or ask for help at the Circulation or Reference Desk.
+      </pageMsg>
+      <pageMsg blockCode="15">
+         Renewal blocked.
+         <br/>Patron registration expired.
+      </pageMsg>
+      <pageMsg blockCode="28">
+         Renewal blocked.
+         <br/>Item not authorized for renewal.
+      </pageMsg>
+      <pageMsg blockCode="29">
+         Renewal blocked.
+         <br/>Item is at renewal limit.
+      </pageMsg>
+      <pageMsg blockCode="30">
+         Renewal blocked.
+         <br/>Overdue items may not be renewed.
+      </pageMsg>
+      <pageMsg blockCode="31">
+         Renewal blocked.
+         <br/>Items with recall requests may not be renewed.
+      </pageMsg>
+      <pageMsg blockCode="32">
+         Renewal blocked.
+         <br/>Items with hold requests may not be renewed.
+      </pageMsg>
+      <pageMsg blockCode="48">
+         Renewal blocked.
+         <br/>Item scheduled, cannot be charged or renewed.
+      </pageMsg>
+      <pageMsg blockCode="107">
+         Renewal blocked.
+         <br/>Renewal due date precedes current due date.
+      </pageMsg>
+      <pageMsg blockCode="108">
+         Renewal blocked.
+         <br/>Renewal due date in the past.
+      </pageMsg>
+      <pageMsg errorCode="searchResults.noHits">Search resulted in no hits.</pageMsg>
+   </pageMessages>
+
+
+
+
+
+
+
+
+
+   <!-- ## This section defines the text and the icon to use (for results list icons) for bibFormat ## -->
+   <bibFormats>
+      <bibFormat type="aa" icon="icon_book.gif">Book</bibFormat>
+      <bibFormat type="ab" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ac" icon="icon_pamphlet.gif">Book</bibFormat>
+      <bibFormat type="ad" icon="icon_book.gif">Book</bibFormat>
+      <bibFormat type="am" icon="icon_book.gif">Book</bibFormat>
+      <bibFormat type="as" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ba" icon="icon_manuscript.gif">Archival/Manuscript Material</bibFormat>
+      <bibFormat type="bb" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="bc" icon="icon_manuscript.gif">Archival/Manuscript Material</bibFormat>
+      <bibFormat type="bd" icon="icon_manuscript.gif">Archival/Manuscript Material</bibFormat>
+      <bibFormat type="bm" icon="icon_manuscript.gif">Archival/Manuscript Material</bibFormat>
+      <bibFormat type="bs" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ca" icon="icon_music.gif">Music</bibFormat>
+      <bibFormat type="cb" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="cc" icon="icon_music.gif">Music</bibFormat>
+      <bibFormat type="cd" icon="icon_music.gif">Music</bibFormat>
+      <bibFormat type="cm" icon="icon_score.gif">Score</bibFormat>
+      <bibFormat type="cs" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="da" icon="icon_music.gif">Music</bibFormat>
+      <bibFormat type="db" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="dc" icon="icon_music.gif">Music</bibFormat>
+      <bibFormat type="dd" icon="icon_music.gif">Music</bibFormat>
+      <bibFormat type="dm" icon="icon_score.gif">Score</bibFormat>
+      <bibFormat type="ds" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ea" icon="icon_map.gif">Map</bibFormat>
+      <bibFormat type="eb" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ec" icon="icon_map.gif">Map</bibFormat>
+      <bibFormat type="ed" icon="icon_map.gif">Map</bibFormat>
+      <bibFormat type="em" icon="icon_map.gif">Map</bibFormat>
+      <bibFormat type="es" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="fa" icon="icon_map.gif">Map</bibFormat>
+      <bibFormat type="fb" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="fc" icon="icon_map.gif">Map</bibFormat>
+      <bibFormat type="fd" icon="icon_map.gif">Map</bibFormat>
+      <bibFormat type="fm" icon="icon_map.gif">Map</bibFormat>
+      <bibFormat type="fs" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ga" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="gb" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="gc" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="gd" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="gm" icon="icon_video.gif">Visual Material</bibFormat>
+      <bibFormat type="gs" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ia" icon="icon_recording.gif">Nonmusical Sound Recording</bibFormat>
+      <bibFormat type="ib" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ic" icon="icon_recording.gif">Nonmusical Sound Recording</bibFormat>
+      <bibFormat type="id" icon="icon_recording.gif">Nonmusical Sound Recording</bibFormat>
+      <bibFormat type="im" icon="icon_recording.gif">Nonmusical Sound Recording</bibFormat>
+      <bibFormat type="is" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ja" icon="icon_music.gif">Music</bibFormat>
+      <bibFormat type="jb" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="jc" icon="icon_music.gif">Music</bibFormat>
+      <bibFormat type="jd" icon="icon_music.gif">Music</bibFormat>
+      <bibFormat type="jm" icon="icon_music.gif">Music</bibFormat>
+      <bibFormat type="js" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ka" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="kb" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="kc" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="kd" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="km" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="ks" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ma" icon="icon_cfile.gif">Computer File</bibFormat>
+      <bibFormat type="mb" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="mc" icon="icon_cfile.gif">Computer File</bibFormat>
+      <bibFormat type="md" icon="icon_cfile.gif">Computer File</bibFormat>
+      <bibFormat type="mm" icon="icon_cfile.gif">Computer File</bibFormat>
+      <bibFormat type="ms" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="oa" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="ob" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="oc" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="od" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="om" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="os" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="pa" icon="icon_mixed.gif">Mixed Material</bibFormat>
+      <bibFormat type="pb" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="pc" icon="icon_mixed.gif">Mixed Material</bibFormat>
+      <bibFormat type="pd" icon="icon_mixed.gif">Mixed Material</bibFormat>
+      <bibFormat type="pm" icon="icon_mixed.gif">Mixed Material</bibFormat>
+      <bibFormat type="ps" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ra" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="rb" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="rc" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="rd" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="rm" icon="icon_visual.gif">Visual Material</bibFormat>
+      <bibFormat type="rs" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="ta" icon="icon_manuscript.gif">Archival/Manuscript Material</bibFormat>
+      <bibFormat type="tb" icon="icon_serial.gif">Journal</bibFormat>
+      <bibFormat type="tc" icon="icon_manuscript.gif">Archival/Manuscript Material</bibFormat>
+      <bibFormat type="td" icon="icon_manuscript.gif">Archival/Manuscript Material</bibFormat>
+      <bibFormat type="tm" icon="icon_manuscript.gif">Archival/Manuscript Material</bibFormat>
+      <bibFormat type="ts" icon="icon_serial.gif">Journal</bibFormat>
+   </bibFormats>
+
+   <formMaterial>
+      <!-- ## Otherwise known as 006_00_1 (control field 6 ,byte 0, 1 byte ) ## -->
+      <!-- ## Here we will provide a mapping of what used to be in marcinfo.ini in the [006_00_1] ## -->
+      <format type="a">Book</format>
+      <format type="c">Printed Music</format>
+      <format type="d">Manuscript Music</format>
+      <format type="e">Printed Map</format>
+      <format type="f">Manuscript Map</format>
+      <format type="g">Projected Medium</format>
+      <format type="i">Nonmusical Sound Recording</format>
+      <format type="j">Musical Sound Recording</format>
+      <format type="k">Two-Dimensional, Nonprojectable Graphic</format>
+      <format type="m">Computer File</format>
+      <format type="o">Kit</format>
+      <format type="p">Mixed Material</format>
+      <format type="r">Three-Dimensional Object</format>
+      <format type="s">Periodical</format>
+      <format type="t">Manuscript Material</format>
+   </formMaterial>
+
+   <physicalDescription>
+      <!-- ## Otherwise known as 007_00_1 (control field 7 ,byte 0, 1 byte ) ## -->
+      <!-- ## Here we will provide a mapping of what used to be in marcinfo.ini in the [007_00_1] ## -->
+      <format type="a">Map</format>
+      <format type="aa">Map</format>
+      <format type="ad">Atlas</format>
+      <format type="ag">Diagram</format>
+      <format type="aj">Map</format>
+      <format type="ak">Profile</format>
+      <format type="aq">Model</format>
+      <format type="ar">Remote-sensing image</format>
+      <format type="as">Section</format>
+      <format type="ay">View</format>
+      <format type="az">Map</format>
+      <format type="c">Computer File</format>
+      <format type="ca">Tape cartridge</format>
+      <format type="cb">Chip cartridge</format>
+      <format type="cc">Computer optical disc cartridge</format>
+      <format type="cf">Tape cassette</format>
+      <format type="ch">Tape reel</format>
+      <format type="cj">Magnetic disk</format>
+      <format type="cm">Magneto-optical disc</format>
+      <format type="co">Optical disc</format>
+      <format type="cr">Remote</format>
+      <format type="cu">Computer file</format>
+      <format type="cz">Computer file</format>
+      <format type="d">Globe</format>
+      <format type="da">Celestial globe</format>
+      <format type="db">Planetary or lunar globe</format>
+      <format type="dc">Terrestrial globe</format>
+      <format type="dz">Globe</format>
+      <format type="g">Projected Graphic</format>
+      <format type="gc">Filmstrip cartridge</format>
+      <format type="gd">Filmslip</format>
+      <format type="gf">Filmstrip</format>
+      <format type="go">Filmstrip roll</format>
+      <format type="gs">Slide</format>
+      <format type="gt">Transparency</format>
+      <format type="gz">Projected graphic</format>
+      <format type="h">Microform</format>
+      <format type="ha">Aperture card</format>
+      <format type="hb">Microfilm cartridge</format>
+      <format type="hc">Microfilm cassette</format>
+      <format type="hd">Microfilm reel</format>
+      <format type="he">Microfiche</format>
+      <format type="hf">Microfilm cassette</format>
+      <format type="hg">Microopaque</format>
+      <format type="hz">Microform</format>
+      <format type="k">Nonprojected Graphic</format>
+      <format type="kc">Collage</format>
+      <format type="kd">Drawing</format>
+      <format type="ke">Painting</format>
+      <format type="kf">Photomechanical print</format>
+      <format type="kg">Photonegative</format>
+      <format type="kh">Photoprint</format>
+      <format type="ki">Picture</format>
+      <format type="kj">Print</format>
+      <format type="kl">Technical drawing</format>
+      <format type="kn">Chart</format>
+      <format type="ko">Flash card</format>
+      <format type="kz">Nonprojected graphic</format>
+      <format type="m">Motion Picture</format>
+      <format type="mc">Film cartridge</format>
+      <format type="mf">Film cassette</format>
+      <format type="mr">Film reel</format>
+      <format type="mz">Motion picture</format>
+      <format type="r">Remote-Sensing image</format>
+      <format type="s">Sound Recording</format>
+      <format type="sd">Sound Disc</format>
+      <format type="se">Sound recording cylinder</format>
+      <format type="sg">Sound cartridge</format>
+      <format type="si">Sound-track film</format>
+      <format type="sq">Sound recording roll</format>
+      <format type="ss">Sound cassette</format>
+      <format type="st">Sound-tape reel</format>
+      <format type="sw">Wire recording</format>
+      <format type="sz">Sound recording</format>
+      <format type="t">Text (Eye-Readable)</format>
+      <format type="ta">Regular print</format>
+      <format type="tb">Large print</format>
+      <format type="tc">Braille</format>
+      <format type="td">Loose">leaf</format>
+      <format type="tz">Text</format>
+      <format type="v">Videorecording</format>
+      <format type="vc">Videocartridge</format>
+      <format type="vd">Videodisc</format>
+      <format type="vf">Videocassette</format>
+      <format type="vr">Videoreel</format>
+      <format type="vz">Videorecording</format>
+      <format type="z">Unspecified</format>
+   </physicalDescription>
+
+   <authorityRecords>
+      <labels>
+         <label id="headingText">Heading Text:</label>
+         <label id="headingCount">Titles:</label>
+         <label id="headingType">Type of Heading:</label>
+         <label id="scopeNote">Scope Note:</label>
+         <label id="1XX">Heading (1XX):  </label>
+         <label id="4XX">Used For/See From (4XX):  </label>
+         <label id="5XX">Search Also Under (5XX):  </label>
+      </labels>
+      <subdivisionCodeMap>
+         <subdivisionCode code="A">Authorized</subdivisionCode>
+         <subdivisionCode code="N">Non-authorized</subdivisionCode>
+         <subdivisionCode code="s">See Reference</subdivisionCode>
+         <subdivisionCode code="l">See Also Reference</subdivisionCode>
+         <subdivisionCode code="a">Earlier Heading</subdivisionCode>
+         <subdivisionCode code="b">Later Heading</subdivisionCode>
+         <subdivisionCode code="d">Acronym</subdivisionCode>
+         <subdivisionCode code="f">Musical Composition</subdivisionCode>
+         <subdivisionCode code="g">Broader Term</subdivisionCode>
+         <subdivisionCode code="h">Narrower Term</subdivisionCode>
+         <subdivisionCode code="B">Untraced Reference</subdivisionCode>
+         <subdivisionCode code="c">Traced Reference</subdivisionCode>
+      </subdivisionCodeMap>
+      <crossRefSearchCodes>
+         <searchIndex code="" desc="Subject Authority Heading">SHED%2B</searchIndex>
+         <searchIndex code="S" desc="Subject Authority Heading">SHED%2B</searchIndex>
+         <searchIndex code="T" desc="Title Authority Heading">THED%2B</searchIndex>
+         <searchIndex code="A" desc="Name Title Authority Heading">AHED%2B</searchIndex>
+         <searchIndex code="E" desc="Name Title Authority Heading">AHED%2B</searchIndex>
+         <searchIndex code="N" desc="Name Authority Heading">NHED%2B</searchIndex>
+      </crossRefSearchCodes>
+   </authorityRecords>
+   
+   <!-- each library is responsible for creating a relationship with a provider of cover images -->
+   <!--
+   <resultsCoverTag nameIdMatch="page.searchResults.item.type.isbn" linkPRE_TEXT="http://images.sample.com/images/" linkPOST_TEXT=".jpg" altText="Cover Image"/>
+   -->
+
+   <!--
+   <resultsCoverTag nameIdMatch="page.searchResults.item.type.isbn" linkPRE_TEXT="http://www.syndetics.com/hw7.pl?isbn=" linkPOST_TEXT="/SC.jpg" altText="Cover Image"/>
+    -->
+
+
+
+
+
+   <!-- ##
+        ## The following XML is a place to define what text appears in the interface when you hover over content
+        ## You may add hover text (title attribute) to inputs and dropdowns by creating an element
+        ## that matches the 'id' attribute of that form element within <elementTitles>
+        ## Some title attributes are generated in the xsl based on XML server content
+        ## Currently not everything is utilizing this feature
+        -->
+
+   <elementTitles>
+
+      <header>
+         <logo>This a logo image within a link</logo>
+         <help>Clicking this link opens Help in a new window</help>
+         <headerTabs>Main Navigation Bar</headerTabs>
+         <quickSearchBar>Quick Search Bar</quickSearchBar>
+      </header>
+
+      <body>
+
+         <!-- ## Start :: Search Pages ## -->
+
+            <!-- ## Common ## -->
+            <changeDatabaseLink>Click to change to a different database.</changeDatabaseLink>
+            <databaseInfo>Currently Connected Database(s).</databaseInfo>
+            <searchHistory>Click to show search history.</searchHistory>
+            <recCount>Select how many records to display per page.</recCount>
+
+            <!-- ## Basic Search ## -->
+            <searchArg>Please enter search term(s).</searchArg>
+            <searchCode>Select the index to search.</searchCode>
+            <limitTo>Limit your search to these items.</limitTo>
+
+            <!-- ## Advanced Search ## -->
+            <searchArg1>Please enter your 1st search term(s).</searchArg1>
+            <argType1>Select how the 1st term(s) should be handled</argType1>
+            <searchCode1>Select the search index to search for the 1st term(s)</searchCode1>
+
+            <searchArg2>Please enter your 2nd search term(s).</searchArg2>
+            <argType2>Select how the 2nd term(s) should be handled</argType2>
+            <searchCode2>Select the search index to search for the 2nd term(s)</searchCode2>
+            <combine2>Select a boolean operator to add more information to the search</combine2>
+
+            <searchArg3>Please enter your 3rd search term(s).</searchArg3>
+            <argType3>Select how the 3rd term(s) should be handled</argType3>
+            <searchCode3>Select the search index to search for the 3rd term(s)</searchCode3>
+            <combine3>Select a boolean operator to add more information to the search</combine3>
+
+
+            <year>Limit results to a pre-defined year range</year>
+            <fromYear>Enter a starting year to limit within a range</fromYear>
+            <toYear>Enter and end year to limit within a range</toYear>
+            <location>Select to limit by location</location>
+            <place>Select to limit by place</place>
+            <type>Select to limit by type</type>
+            <status>Select to limit by status</status>
+            <medium>Select to limit by medium</medium>
+            <language>Select to limit by language</language>
+
+
+
+         <!-- ## End :: Search Pages ## -->
+
+      </body>
+
+      <footer>
+         <footerTabs>Footer Navigation Bar</footerTabs>
+         <copyright>Copyright</copyright>
+      </footer>
+
+   </elementTitles> <!-- ## End of hover text logic ## -->
+
+
+
+
+
+
+
+
+</pageConfigs>
+
